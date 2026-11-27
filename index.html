@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Rapat Orang Tua/Wali Murid</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- AUDIO MUSIK LATAR -->
+  <audio id="bgMusic" loop>
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- TOMBOL KONTROL MUSIK -->
+  <button id="musicToggleBtn" class="music-float-btn" title="Putar/Hentikan Musik">
+    <i class="fa-solid fa-music" id="musicIcon"></i>
+  </button>
+
+  <!-- COVER UNDANGAN (Navy Blue) -->
+  <section id="cover">
+    <div class="cover-content">
+      <div class="badge-sekolah"><i class="fa-solid fa-school"></i> SMKN 6 Tangerang Selatan</div>
+      <h1>Undangan Rapat</h1>
+      <p class="subtitle">Rapat Orang Tua / Wali Murid</p>
+
+      <!-- UBAH NAMA TAMU DI SINI -->
+      <div class="kartu">
+        <small>Kepada Yth. Bapak/Ibu/Saudara/i:</small>
+        <h2 id="namaTamu">Orang Tua</h2>
+        <p id="jabatanTamu">Wali Murid</p>
+      </div>
+
+      <button id="btnBuka"><i class="fa-solid fa-envelope-open"></i> Buka Undangan</button>
+    </div>
+  </section>
+
+  <!-- ISI UTAMA UNDANGAN (Cream Background) -->
+  <div id="isi" hidden>
+
+    <div class="main-container">
+      <h2><i class="fa-solid fa-circle-info"></i> Detail Rapat</h2>
+      <div class="info">
+        <p><i class="fa-regular fa-calendar-days"></i> <b>Hari/Tanggal:</b> Senin, 30 November 2026</p>
+        <p><i class="fa-regular fa-clock"></i> <b>Waktu:</b> 09.00 - 11.45 WIB</p>
+        <p><i class="fa-solid fa-location-dot"></i> <b>Tempat:</b> Ruang RPS, Lantai 1 / Lab Broadcasting</p>
+        
+        <!-- Hitung Mundur Live -->
+        <div class="countdown-box-content">
+          <p><i class="fa-solid fa-hourglass-half"></i> Hitung Mundur Menuju Acara:</p>
+          <div id="countdown" class="countdown-timer">
+            <span><b id="days">00</b> Hari</span> :
+            <span><b id="hours">00</b> Jam</span> :
+            <span><b id="minutes">00</b> Mnt</span> :
+            <span><b id="seconds">00</b> Dtk</span>
+          </div>
+        </div>
+
+        <!-- Tombol Google Kalender -->
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Rapat+Orang+Tua+Wali+Murid+SMKN+6+Tangsel&dates=20261130T020000Z/20261130T043000Z&details=Rapat+rutin+orang+tua+dan+wali+murid+SMKN+6+Tangerang+Selatan.&location=Ruang+RPS,+Lantai+1+/+Lab+Broadcasting,+SMKN+6+Tangerang+Selatan" 
+           target="_blank" class="btn-gcal">
+           <i class="fa-regular fa-calendar-plus"></i> Simpan ke Google Kalender
+        </a>
+      </div>
+
+      <h2><i class="fa-solid fa-list-check"></i> Agenda Rapat</h2>
+      <div class="agenda-container">
+        <div class="agenda-item">
+          <span class="agenda-time">09.00 WIB</span>
+          <div class="agenda-text"><b>Pembukaan</b> oleh Kepala Sekolah</div>
+        </div>
+        <div class="agenda-item">
+          <span class="agenda-time">09.15 WIB</span>
+          <div class="agenda-text"><b>Program & Kegiatan Sekolah</b> selama satu semester/tahun ajaran (kalender akademik, ujian, study tour, perpisahan, dll.)</div>
+        </div>
+        <div class="agenda-item">
+          <span class="agenda-time">10.15 WIB</span>
+          <div class="agenda-text"><b>Kurikulum & Sistem Penilaian</b> siswa di sekolah</div>
+        </div>
+        <div class="agenda-item">
+          <span class="agenda-time">11.00 WIB</span>
+          <div class="agenda-text"><b>Tata Tertib Sekolah</b>, kedisiplinan, dan tingkat kehadiran siswa</div>
+        </div>
+        <div class="agenda-item">
+          <span class="agenda-time">11.25 WIB</span>
+          <div class="agenda-text"><b>Laporan Perkembangan Akademik</b> dan perilaku siswa</div>
+        </div>
+        <div class="agenda-item">
+          <span class="agenda-time">11.40 WIB</span>
+          <div class="agenda-text"><b>Penutup dan Doa</b> bersama</div>
+        </div>
+      </div>
+
+      <!-- GALERI FOTO (4 FOTO) -->
+      <h2><i class="fa-solid fa-images"></i> Galeri Kegiatan Sekolah</h2>
+      <p style="font-size: 0.9rem; color: #5c5346; margin-top: -8px; margin-bottom: 15px;">Dokumentasi fasilitas dan kegiatan di SMKN 6 Tangerang Selatan.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="foto1.jpg" alt="Foto 1" onerror="this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&auto=format&fit=crop&q=60'"></div>
+        <div class="gallery-item"><img src="foto2.jpg" alt="Foto 2" onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=500&auto=format&fit=crop&q=60'"></div>
+        <div class="gallery-item"><img src="foto3.jpg" alt="Foto 3" onerror="this.src='https://images.unsplash.com/photo-1562774053-701939374585?w=500&auto=format&fit=crop&q=60'"></div>
+        <div class="gallery-item"><img src="foto4.jpg" alt="Foto 4" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&auto=format&fit=crop&q=60'"></div>
+      </div>
+
+      <h2><i class="fa-solid fa-clipboard-list"></i> Yang Perlu Disiapkan</h2>
+      <ul class="prep-list">
+        <li><i class="fa-solid fa-check"></i> Buku catatan dan bolpoin</li>
+        <li><i class="fa-solid fa-check"></i> Kartu identitas atau kartu pelajar anak</li>
+        <li><i class="fa-solid fa-check"></i> Berpakaian rapi dan sopan</li>
+      </ul>
+
+      <h2><i class="fa-solid fa-map-location-dot"></i> Lokasi Sekolah</h2>
+      <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0031130667176!2d106.66350157586844!3d-6.263318761320043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fb06a47e36b7%3A0x93b22c3ee1f216b1!2sSMKN%206%20Tangerang%20Selatan!5e0!3m2!1sid!2sid!4v1795405952102!5m2!1sid!2sid" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+
+      <h2><i class="fa-brands fa-whatsapp"></i> Konfirmasi Kehadiran (RSVP)</h2>
+      <form id="rsvpForm">
+        <label>Nama Lengkap</label>
+        <input type="text" id="rsvpNama" required value="">
+
+        <label>Apakah Anda akan hadir?</label>
+        <select id="rsvpStatus" required>
+          <option value="">Pilih konfirmasi kehadiran</option>
+          <option value="hadir">Hadir langsung di sekolah</option>
+          <option value="online">Hadir online (Zoom)</option>
+          <option value="tidak">Berhalangan hadir</option>
+        </select>
+
+        <label>Catatan / Pesan (Opsional)</label>
+        <textarea id="rsvpCatatan" placeholder="Tuliskan catatan jika ada..."></textarea>
+
+        <button type="submit" class="btn-submit"><i class="fa-brands fa-whatsapp"></i> Kirim Konfirmasi via WhatsApp</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

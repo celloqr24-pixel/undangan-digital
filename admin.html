@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Daftar Tamu Undangan Rapat</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="padding: 30px; background: #0d1b2a; min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+
+  <div class="main-container" style="max-width: 800px; width: 100%; margin: 0 auto;">
+    <h2><i class="fa-solid fa-users-gear"></i> Daftar Tamu Rapat</h2>
+    <p style="color: #64748b; font-size: 0.9rem; margin-top: -5px; margin-bottom: 20px;">
+      Daftar orang tua/wali murid yang diundang ke Rapat Orang Tua/Wali Murid SMKN 6 Tangerang Selatan.
+    </p>
+    
+    <p id="status" style="font-weight: 600; color: #d4af37; margin-bottom: 15px; font-size: 0.95rem;">Memuat data tamu...</p>
+
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; background: white; text-align: left; border-radius: 12px; overflow: hidden; border: 1px solid #e6dccb;">
+        <thead>
+          <tr style="background: #1b263b; color: white;">
+            <th style="padding: 12px 15px; font-size: 0.9rem;">Nama Tamu</th>
+            <th style="padding: 12px 15px; font-size: 0.9rem;">Jabatan</th>
+            <th style="padding: 12px 15px; font-size: 0.9rem;">No. WhatsApp</th>
+            <th style="padding: 12px 15px; font-size: 0.9rem; text-align: center;">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="tbody" style="font-size: 0.9rem;">
+          <!-- Data tamu dimuat otomatis -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const daftarTamu = [
+      { nama: "Sinta", jabatan: "Wali Murid", wa: "6281234567890" },
+      { nama: "Rizka", jabatan: "Wali Murid", wa: "6289876543210" },
+      { nama: "Anwar", jabatan: "Wali Murid", wa: "6285556667770" },
+      { nama: "Bayu",  jabatan: "Wali Murid", wa: "6281112223330" },
+      { nama: "Roy",   jabatan: "Wali Murid", wa: "6284445556660" }
+    ];
+
+    const basePath = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
+    const base = basePath + "index.html";
+
+    let htmlContent = "";
+    daftarTamu.forEach(function (tamu) {
+      const link = base + "?to=" + encodeURIComponent(tamu.nama) + "&jabatan=" + encodeURIComponent(tamu.jabatan);
+      const pesan = "Yth. Bapak/Ibu " + tamu.nama + ", Anda diundang ke Rapat Orang Tua/Wali Murid SMKN 6 Tangsel pada Senin, 30 November 2026. Buka undangan di sini: " + link;
+      const linkWA = "https://wa.me/" + tamu.wa + "?text=" + encodeURIComponent(pesan);
+
+      htmlContent += "<tr style='border-bottom: 1px solid #e6dccb;'>"
+                  + "<td style='padding: 12px 15px; font-weight: 600; color: #1b263b;'>" + tamu.nama + "</td>"
+                  + "<td style='padding: 12px 15px; color: #5c5346;'>" + tamu.jabatan + "</td>"
+                  + "<td style='padding: 12px 15px; color: #5c5346;'>" + tamu.wa + "</td>"
+                  + "<td style='padding: 12px 15px; text-align: center;'>"
+                  + "<a href='" + linkWA + "' target='_blank' style='background: #25d366; color: white; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; display: inline-block;'><i class='fa-brands fa-whatsapp'></i> Kirim WA</a>"
+                  + "</td>"
+                  + "</tr>";
+    });
+
+    document.getElementById("tbody").innerHTML = htmlContent;
+    document.getElementById("status").textContent = "Total " + daftarTamu.length + " tamu berhasil dimuat.";
+  </script>
+</body>
+</html>
